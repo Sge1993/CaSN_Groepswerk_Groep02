@@ -26,7 +26,7 @@ vrf definition Mgmt-intf
  address-family ipv6
  exit-address-family
 !
-enable secret 9 $9$be1dQW7c.wL82E$NLJ6JsoCql5BmYYZY8oT1neZODQWSoCPAowJ2DGaAP.
+enable secret class
 !
 no aaa new-model
 !
