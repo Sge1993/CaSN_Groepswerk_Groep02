@@ -90,7 +90,9 @@ interface GigabitEthernet0/0/1.200
  ip address 10.0.6.129 255.255.255.128
 !
 interface Serial0/1/0
- no ip address
+ ip address 10.0.7.1 255.255.255.252
+no shut
+
 !
 interface Serial0/1/1
  no ip address
