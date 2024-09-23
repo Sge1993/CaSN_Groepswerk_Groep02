@@ -1,0 +1,125 @@
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname SW-NY-1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$14IO$FxE4ZWENpg51BlzYAcg/80
+!
+username admin secret 5 $1$09Id$lrRKWKRgSK/kCMVXKnAAk/
+!
+!
+vlan 10
+name Data
+vlan 20
+name Wireless
+vlan 100
+name MGMT
+vlan 200
+name Server
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+ip domain-name cisco.com
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+interface FastEthernet0/1
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,100,200
+ switchport mode trunk
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan100
+ ip address 10.0.3.2 255.255.255.0
+!
+ip default-gateway 10.0.0.1
+ip http server
+ip http secure-server
+vstack
+banner motd ^CAuthorized acces only!^C
+!
+line con 0
+ password 7 13061E010803
+ login
+line vty 0 4
+ password 7 13061E010803
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+end
