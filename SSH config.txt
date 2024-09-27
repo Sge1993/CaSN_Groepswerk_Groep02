@@ -1,0 +1,23 @@
+
+banner motd #Authorized Access Only!#
+enable secret class
+line console 0
+password cisco	
+login
+exit
+service password-encryption
+ip domain-name cisco.com
+username admin secret cisco
+crypto key generate rsa general-keys modulus 1024
+ip ssh version 2
+line vty 0 15
+transport input ssh
+login local
+exit
+
+
+#voor router
+line vty 0 4
+transport input ssh
+login local
+exit
